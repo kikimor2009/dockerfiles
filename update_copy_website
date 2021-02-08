@@ -1,0 +1,4 @@
+FROM httpd:2.4
+RUN apt-get update -y && apt-get upgrade -y && apt-get autoremove -y
+RUN rm -f /usr/local/apache2/htdocs/index.html
+COPY content-widget-factory-inc/web /usr/local/apache2/htdocs/
