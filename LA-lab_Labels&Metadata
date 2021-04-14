@@ -1,0 +1,20 @@
+#
+# Command to actualy run this file is "docker image build -t kikimor2009/weather-app --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') \--build-arg APPLICATION_NAME=weather-app --build-arg BUILD_VERSION=v1.2 ."
+#
+
+FROM node
+
+ARG BUILD_VERSION
+ARG BUILD_DATE
+ARG APPLICATION_NAME
+
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.application=$APPLICATION_NAME
+LABEL org.label-schema.version=$BUILD_VERSION
+
+RUN mkdir -p /var/node
+COPY weather-app/ /var/node
+WORKDIR /var/node
+RUN npm install
+EXPOSE 3000
+CMD ./bin/www
