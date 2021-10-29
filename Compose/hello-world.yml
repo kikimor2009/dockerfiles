@@ -1,4 +1,5 @@
 version: '3'
 services:
-  hello-world:
-    image: hello-world:latest
+  ubuntu-hello-world:
+    image: ubuntu:latest
+    command: echo "Hello world from ubuntu"

@@ -1,0 +1,7 @@
+version: '3'
+services:
+  bottle:
+    build:
+      context: "./bottle/"
+    ports:
+      - 8080:8080
